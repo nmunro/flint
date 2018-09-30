@@ -1,5 +1,13 @@
+import os
 import subprocess
+from urllib import request
 
 
-if __name__ == '__main__':
-    subprocess.run(['git', 'init'])
+with open(os.devnull, 'w') as fp:
+    subprocess.run(['git', 'init'], stdout=fp)
+
+request.urlretrieve(
+    'https://www.gitignore.io/api/{{cookiecutter.project_gitignore_sets|replace(" ", ",")}}',
+    '.gitignore',
+)
+
