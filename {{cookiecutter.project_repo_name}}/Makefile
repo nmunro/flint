@@ -7,8 +7,9 @@ env:
 run:
 	@pipenv run python {{ cookiecutter.project_repo_name }}/{{ cookiecutter.project_repo_name }}.py
 
-tests:
-	@pipenv run python -m unittest tests
+test:
+	@pipenv run coverage run --branch -m unittest discover; pipenv run coverage html
+
 
 docs:
 	@sphinx-apidoc -o docs/source/ ../{{ cookiecutter.project_repo_name }}/
