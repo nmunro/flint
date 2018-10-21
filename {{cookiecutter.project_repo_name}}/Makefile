@@ -11,7 +11,7 @@ test:
 	@pipenv run coverage run --branch -m unittest discover; pipenv run coverage html
 
 lint:
-	@pipenv run isort
+	@pipenv run isort --virtual-env .venv {{ cookiecutter.project_repo_name }}/*.py
 
 docs:
 	@sphinx-apidoc -o docs/source/ ../{{ cookiecutter.project_repo_name }}/
