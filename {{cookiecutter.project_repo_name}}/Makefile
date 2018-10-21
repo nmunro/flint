@@ -10,6 +10,8 @@ run:
 test:
 	@pipenv run coverage run --branch -m unittest discover; pipenv run coverage html
 
+lint:
+	@pipenv run isort
 
 docs:
 	@sphinx-apidoc -o docs/source/ ../{{ cookiecutter.project_repo_name }}/

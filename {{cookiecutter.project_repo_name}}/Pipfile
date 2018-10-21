@@ -4,10 +4,11 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-coverage = "*"
-sphinx = "*"
 
 [dev-packages]
+coverage = "*"
+sphinx = "*"
+isort = "*"
 
 [requires]
 python_version = "3.7"
