@@ -6,8 +6,8 @@ name = "pypi"
 [packages]
 
 [dev-packages]
+coala-bears = "*"
 coverage = "*"
-sphinx = "*"
 isort = "*"
 
 [requires]
