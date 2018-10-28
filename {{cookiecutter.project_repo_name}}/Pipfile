@@ -6,9 +6,8 @@ name = "pypi"
 [packages]
 
 [dev-packages]
-coala-bears = "*"
-coverage = "*"
-isort = "*"
+coala-bears = "==0.11.1"
+coverage = "==4.5.1"
 
 [requires]
 python_version = "3.7"
