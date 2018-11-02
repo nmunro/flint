@@ -14,5 +14,5 @@ lint:
 	@pipenv run isort --virtual-env .venv {{ cookiecutter.project_repo_name }}/*.py && pipenv run coala all
 
 docs:
-	@sphinx-apidoc -o docs/source/ ../{{ cookiecutter.project_repo_name }}/
+	@pipenv run sphinx-apidoc -f -o docs/source/ {{cookiecutter.project_repo_name}} ./tests/*.py
 	@cd docs && make html
