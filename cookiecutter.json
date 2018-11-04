@@ -4,9 +4,10 @@
     "project_name": "",
     "project_repo_name": "{{cookiecutter.project_name|lower|replace(' ', '_')|replace('-', '_')}}",
     "project_short_description": "",
+    "project_python_version": "^3.7",
     "project_sys_deps": "",
     "project_gitignore_sets": "python macos",
-    "project_version": "{% now 'utc', '%Y.%m (01)' %}",
+    "project_version": "{% now 'utc', '%Y.%m.01' %}",
     "project_license": [
         "MIT license",
         "BSD license",

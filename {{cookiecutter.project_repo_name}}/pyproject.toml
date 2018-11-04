@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "{{cookiecutter.project_name}}"
+version = "0.1.0"
+description = "{{cookiecutter.project_short_description}}"
+authors = ["{{cookiecutter.author_name}}"]
+
+[tool.poetry.dependencies]
+python = "{{cookiecutter.project_python_version}}"
+
+[tool.poetry.dev-dependencies]
+coverage = "4.5.1"
+coala-bears = "0.11.1"
+sphinx = "<1.5,>=1.3"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
