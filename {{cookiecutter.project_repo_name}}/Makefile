@@ -1,4 +1,4 @@
-.PHONY: env run tests docs
+.PHONY: env run requirements.txt tests docs
 .DEFAULT: env
 
 env:
@@ -6,6 +6,11 @@ env:
 
 run:
 	@poetry run python {{ cookiecutter.project_repo_name }}/{{ cookiecutter.project_repo_name }}.py
+
+requirements.txt:
+	@poetry run pip freeze > tmp.txt
+	@sed '/-e /d' ./tmp.txt | sed '/## !! Could not/d' | sed '/{{cookiecutter.project_name}}/d' > requirements.txt
+	@rm -rf tmp.txt
 
 test:
 	@poetry run coverage run --branch -m unittest discover; poetry run coverage html
