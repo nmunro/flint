@@ -1,4 +1,4 @@
-.PHONY: env run requirements.txt tests docs
+.PHONY: env run requires tests docs
 .DEFAULT: env
 
 env:
