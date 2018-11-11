@@ -5,20 +5,20 @@ env:
 	@poetry install
 
 run:
-	@source .env && poetry run gunicorn miskatonic.app:app
+	@poetry run python {{ cookiecutter.project_repo_name }}/{{ cookiecutter.project_repo_name }}.py
 
 test:
-	@source .env && poetry run coverage run --branch -m unittest discover && poetry run coverage html
+	@poetry run coverage run --branch -m unittest discover && poetry run coverage html
 
 requires:
-	@source .env && poetry show --no-dev | tr -s " " | sed 's/ /==/' | sed 's/ .*//' > requirements.txt
+	@poetry show --no-dev | tr -s " " | sed 's/ /==/' | sed 's/ .*//' > requirements.txt
 
 deploy:
 	@git push -u heroku master
 
 lint:
-	@source .env && poetry run isort --virtual-env .venv miskatonic/*.py
+	@poetry run isort --virtual-env .venv {{ cookiecutter.project_repo_name }}/*.py && poetry run coala all
 
 docs:
-	@sphinx-apidoc -o docs/source/ miskatonic/
+	@poetry run sphinx-apidoc -f -o docs/source/ {{cookiecutter.project_repo_name}} ./tests/*.py
 	@cd docs && make html
