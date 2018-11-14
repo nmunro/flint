@@ -7,7 +7,7 @@
     "project_python_version": "^3.7",
     "project_sys_deps": "",
     "project_gitignore_sets": "python macos",
-    "project_version": "{% now 'utc', '%Y.%m.01' %}",
+    "project_version": "{% now 'utc', '%Y.%m.%d' %}",
     "project_license": [
         "MIT license",
         "BSD license",

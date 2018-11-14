@@ -17,7 +17,7 @@ deploy:
 	@git push -u heroku master
 
 lint:
-	@poetry run isort --virtual-env .venv {{ cookiecutter.project_repo_name }}/*.py && poetry run coala all
+	@poetry run isort --virtual-env .venv {{ cookiecutter.project_repo_name }}/*.py && poetry run flake8
 
 docs:
 	@poetry run sphinx-apidoc -f -o docs/source/ {{cookiecutter.project_repo_name}} ./tests/*.py

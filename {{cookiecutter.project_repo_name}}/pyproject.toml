@@ -8,9 +8,9 @@ authors = ["{{cookiecutter.author_name}}"]
 python = "{{cookiecutter.project_python_version}}"
 
 [tool.poetry.dev-dependencies]
-coverage = "4.5.1"
-coala-bears = "0.11.1"
-sphinx = "<1.5,>=1.3"
+coverage = "^4.5"
+isort = "^4.3"
+sphinx = "^1.8"
 
 [build-system]
 requires = ["poetry>=0.12"]
