@@ -4,6 +4,7 @@ import os
 import subprocess
 
 pre_commit = Path('.git', 'hooks', 'pre-commit')
+ignore = Path('.gitignore')
 
 with open(os.devnull, 'w') as fp:
     subprocess.run(['git', 'init'], stdout=fp)
@@ -34,6 +35,9 @@ with open(os.devnull, 'w') as fp:
 
 request.urlretrieve(
     'https://www.gitignore.io/api/{{cookiecutter.project_gitignore_sets|replace(" ", ",")}}',
-    '.gitignore',
+    ignore
 )
 
+with open(ignore, 'a') as f:
+    f.write('\n# Extra lines needed for Flint\n')
+    f.write('coverage')
