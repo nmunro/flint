@@ -1,4 +1,4 @@
-.PHONY: env run test lint requires deploy docs
+.PHONY: env run test lint requires docs
 .DEFAULT: env
 
 env:
@@ -12,9 +12,6 @@ test:
 
 requires:
 	@poetry show --no-dev | tr -s " " | sed 's/ /==/' | sed 's/ .*//' > requirements.txt
-
-deploy:
-	@git push -u heroku master
 
 lint:
 	@poetry run isort --virtual-env .venv {{ cookiecutter.project_repo_name }}/*.py && poetry run flake8
