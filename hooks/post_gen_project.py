@@ -5,6 +5,7 @@ import subprocess
 
 pre_commit = Path('.git', 'hooks', 'pre-commit')
 ignore = Path('.gitignore')
+license = Path('LICENSE')
 
 with open(os.devnull, 'w') as fp:
     subprocess.run(['git', 'init'], stdout=fp)
@@ -33,10 +34,17 @@ with open(pre_commit, 'w') as f:
 with open(os.devnull, 'w') as fp:
     subprocess.run(['chmod', '+x', str(pre_commit)], stdout=fp)
 
-request.urlretrieve(
-    'https://www.gitignore.io/api/{{cookiecutter.project_gitignore_sets|replace(" ", ",")}}',
-    ignore
+gitignore_url = 'https://www.gitignore.io/api/{{cookiecutter.project_gitignore_sets|replace(" ", ",")}}',
+license_url = (
+    'http://li-gen.herokuapp.com/license?'
+    'project_name={{cookiecutter.project_name}}&'
+    'author_name={{cookiecutter.author_name}}&'
+    'author_email={{cookiecutter.author_email}}&'
+    'license={{cookiecutter.project_license|lower}}'
 )
+
+request.urlretrieve(gitignore_url, ignore)
+request.urlretrieve(license_url, license)
 
 with open(ignore, 'a') as f:
     f.write('\n# Extra lines needed for Flint\n')
