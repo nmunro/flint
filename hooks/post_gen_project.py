@@ -10,7 +10,7 @@ license = Path('LICENSE')
 with open(os.devnull, 'w') as fp:
     subprocess.run(['git', 'init'], stdout=fp)
 
-with open(pre_commit, 'w') as f:
+with pre_commit.open('w') as f:
     f.write(
         '#!/usr/bin/env sh\n\n'
         '# Check requirements.txt exists\n'
@@ -47,6 +47,6 @@ license_url = ''.join([
 request.urlretrieve(gitignore_url, ignore)
 request.urlretrieve(license_url, license)
 
-with open(ignore, 'a') as f:
+with ignore.open('a') as f:
     f.write('\n# Extra lines needed for Flint\n')
     f.write('coverage')
