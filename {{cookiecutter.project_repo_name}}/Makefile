@@ -2,6 +2,7 @@
 .DEFAULT: env
 
 env:
+	@python -m venv .venv
 	@poetry install
 
 run:
