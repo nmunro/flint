@@ -40,10 +40,6 @@ make docs
 
 * {{cookiecutter.author_name}} ({{cookiecutter.author_email}})
 
-## License
-
-This project is licensed under the {{cookiecutter.project_license}}- see the [LICENSE.md](LICENSE.md) file for details
-
 ## Acknowledgments
 
 * Hat tip to anyone whose code was used
