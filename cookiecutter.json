@@ -8,14 +8,5 @@
     "project_sys_deps": "",
     "project_gitignore_sets": "python macos",
     "project_version": "{% now 'utc', '%Y.%m.%d' %}",
-    "project_license": [
-        "Apache",
-        "BSD-3",
-        "GNU-AGPL-3",
-        "GNU-GPL-3",
-        "GNU-LGPL-3",
-        "MIT",
-        "Mozilla"
-    ],
     "_extensions": ["jinja2_time.TimeExtension"]
 }
