@@ -9,7 +9,7 @@ run:
 	@poetry run python {{ cookiecutter.project_repo_name }}/{{ cookiecutter.project_repo_name }}.py
 
 test:
-	@poetry run coverage run --branch -m unittest discover && poetry run coverage html
+	@poetry run coverage run --branch -m unittest discover --pattern=tests/*.py && poetry run coverage html
 
 requires:
 	@poetry show --no-dev | tr -s " " | sed 's/ /==/' | sed 's/ .*//' > requirements.txt
