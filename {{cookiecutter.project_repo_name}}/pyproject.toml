@@ -8,10 +8,10 @@ authors = ["{{cookiecutter.author_name}}"]
 python = "{{cookiecutter.project_python_version}}"
 
 [tool.poetry.dev-dependencies]
-coverage = "^4.5"
-isort = "^4.3"
-flake8 = "^3.6"
-sphinx = "^1.8"
+coverage = "^6.1"
+isort = "^5.10"
+black = "^21.10b"
+sphinx = "^4.2"
 
 [build-system]
 requires = ["poetry>=0.12"]

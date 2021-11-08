@@ -12,10 +12,13 @@ test:
 	@poetry run coverage run --branch -m unittest discover --pattern=tests/*.py && poetry run coverage html
 
 requires:
-	@poetry show --no-dev | tr -s " " | sed 's/ /==/' | sed 's/ .*//' > requirements.txt
+	@poetry export -f requirements.txt --output requirements.txt
+
+requires-dev:
+	@poetry export -f requirements.txt --output requirements-dev.txt --dev
 
 lint:
-	@poetry run isort --virtual-env .venv {{ cookiecutter.project_repo_name }}/*.py && poetry run flake8
+	@poetry run isort --virtual-env .venv {{ cookiecutter.project_repo_name }}/*.py && poetry run black .
 
 docs:
 	@poetry run sphinx-apidoc -f -o docs/source/ {{cookiecutter.project_repo_name}} ./tests/*.py

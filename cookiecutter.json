@@ -1,12 +1,11 @@
 {
-    "author_name": "Neil Munro",
+    "author_name": "Neil Munro (NMunro)",
     "author_email": "neilmunro@gmail.com",
     "project_name": "",
     "project_repo_name": "{{cookiecutter.project_name|lower|replace(' ', '_')|replace('-', '_')}}",
     "project_short_description": "",
-    "project_python_version": "^3.7",
+    "project_python_version": "^3.10",
     "project_sys_deps": "",
     "project_gitignore_sets": "python macos",
-    "project_version": "{% now 'utc', '%Y.%m.%d' %}",
-    "_extensions": ["jinja2_time.TimeExtension"]
+    "project_version": "0.1.0"
 }
